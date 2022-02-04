@@ -28,7 +28,7 @@ public class OrderQueryRepository {
     public List<OrderQueryDto> findAllByDto_optimization() {
         List<OrderQueryDto> result = findOrders();
 
-        Map<Long, List<OrderItemQueryDto>> orderItemMap = findOrderItemMap(toOrderIds(result));
+        Map<Long,  List<OrderItemQueryDto>> orderItemMap = findOrderItemMap(toOrderIds(result));
 
         result.forEach( o -> o.setOrderItems(orderItemMap.get(o.getOrderId())));
 
